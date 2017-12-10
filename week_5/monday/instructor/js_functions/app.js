@@ -100,3 +100,10 @@ function doSomethingNtimes(cb, num) {
         cb();
     }
 }
+<<<<<<< HEAD
+=======
+
+function callBackWithArg(cb, arg) {
+    return cb(arg);
+}
+>>>>>>> 164f29584d084f94c0d3a7e412e34eccdef09610
