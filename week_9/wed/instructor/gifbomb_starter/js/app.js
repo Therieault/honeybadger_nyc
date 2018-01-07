@@ -9,11 +9,9 @@ $(function() {
 		if (event.keyCode === 13) { search(); }
 	});
 
-	$('#search-box').on('click', '#random', randomGifSearch);
+	$('#search-box').on('click', '#random', getRandomGif);
 	$('#search-box').on('click', '#kittens', kittenBomb);
 	$('#search-box').on('click', '#puppies', puppyBomb);
-
-	$('#gif-container').on('click', 'button', toggleUrl);
 });
 
 <<<<<<< HEAD
@@ -35,10 +33,15 @@ var errorMessage = function(error) {
 // endpoint: http://api.giphy.com/v1/gifs/random
 // api_key: dc6zaTOxFJmzC&
 // Request will return an object with a single gif and metadata
-var getRandomGif = function() {};
+function getRandomGif() {
+	const result = $.ajax({
+		url: 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC'
+	})
 
-// Renders and displays the random gif returned from the API call
-var showRandomGif = function(gif) {};
+	result.then(function(data) {
+		renderResults([data.data]);
+	})
+};
 
 // Kitten Bomb
 // AND
@@ -46,17 +49,62 @@ var showRandomGif = function(gif) {};
 // Performs an AJAX request to the giphy api
 // should ask for 10 gifs
 // should render and display them using the gifTemplate
-var kittenBomb = function() {};
-var puppyBomb = function() {};
+function kittenBomb() {
+	const result = $.ajax({
+		url: 'http://api.giphy.com/v1/gifs/search?q=kittens&limit=10&api_key=dc6zaTOxFJmzC'
+	})
+
+	result.then(function(data) {
+		renderResults(data.data);
+	})
+};
+
+function puppyBomb() {
+	const result = $.ajax({
+		url: 'http://api.giphy.com/v1/gifs/search?q=puppies&limit=10&api_key=dc6zaTOxFJmzC'
+	})
+
+	result.then(function(data) {
+		renderResults(data.data);
+	})
+};
 
 // Performs an AJAX request to the giphy api
 // with user supplied search params
-var	search = function() {};
+function search() {
+	const value = $('#search-box input').val();
+	const result = $.ajax({
+		url: `http://api.giphy.com/v1/gifs/search?q=${value}&limit=10&api_key=dc6zaTOxFJmzC`
+	})
+
+	result.then(function(data) {
+		renderResults(data.data);
+	})
+};
 
 // Should render and display the results
 // returned from the AJAX request to giphy
+<<<<<<< HEAD
 <<<<<<< HEAD
 var showSearchResults = function(results) {};
 =======
 var showSearchResults = function(results) {};
 >>>>>>> 037e08b678d222205ec25e754ef718956d29e014
+=======
+function renderResults(results) {
+	console.log(results);
+	const $gifContainer = $('#gif-container');
+	$gifContainer.empty();
+
+	results.forEach(function(result) {
+		const image = result.image_original_url || result.images.original.url;
+		const markup = `
+				<div class='gif'>
+				<img src="${image}" alt="">
+			</div>
+		`;
+
+		$gifContainer.append(markup);
+	})
+};
+>>>>>>> 746c38c0ac0ff412a4a9b8ed35b489c24ed9488c
