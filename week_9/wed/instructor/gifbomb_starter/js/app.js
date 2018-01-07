@@ -1,6 +1,9 @@
 $(function() {
+<<<<<<< HEAD
 	gifTemplate = Handlebars.compile($('#gif-template').html());
 
+=======
+>>>>>>> 037e08b678d222205ec25e754ef718956d29e014
 	$('#search-box').on('click', '#search', search);
 	$('#search-box').on('keypress', function(event) {
 		if (event.keyCode === 13) { search(); }
@@ -13,6 +16,7 @@ $(function() {
 	$('#gif-container').on('click', 'button', toggleUrl);
 });
 
+<<<<<<< HEAD
 // Set on initialize
 var gifTemplate;
 
@@ -25,6 +29,8 @@ var errorMessage = function(error) {
 	console.log('There was a problem:', error.statusText);
 };
 
+=======
+>>>>>>> 037e08b678d222205ec25e754ef718956d29e014
 // Performs an AJAX request to the giphy api
 // endpoint: http://api.giphy.com/v1/gifs/random
 // api_key: dc6zaTOxFJmzC&
@@ -49,4 +55,8 @@ var	search = function() {};
 
 // Should render and display the results
 // returned from the AJAX request to giphy
+<<<<<<< HEAD
 var showSearchResults = function(results) {};
+=======
+var showSearchResults = function(results) {};
+>>>>>>> 037e08b678d222205ec25e754ef718956d29e014
