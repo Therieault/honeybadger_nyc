@@ -2,6 +2,7 @@
 
 ## User Stories
 
+<<<<<<< HEAD
 * As a user, when I enter information into the search box (and click on
   'search'), I want to see a list of movies matching my search, so I can find
   the movies I am thinking of.
@@ -13,6 +14,15 @@
 * Backbone
 * jQuery
 * [OMDB API](http://www.omdbapi.com/) - Please explore the docs to discover how to use OMDB API to get the response data we desire.  
+=======
+* I would like to be able to search for a movie based on a search term
+* I would like to be able to see the movies details in my browser window
+
+## Tools
+
+* jQuery
+* [OMDB API](http://www.omdbapi.com/) - Please explore the docs to discover how to use OMDB API to get the response data we desire.
+>>>>>>> 300e9d8f0b5dcdf6da11a602fe42c59b3399f7e0
 
 ## Step 1 - Explore the OMDB API
 
@@ -20,6 +30,7 @@ Per our user stories, we need our API to provide with two kinds of responses.
 
 First, we need to be able to get a return of movies based on a movie title search for.  This should return at most 10 titles that match our second term.
 
+<<<<<<< HEAD
 From this initial return, we need to be able to get a specific movie's full details based on its imdbID.  
 
 Please explore the OMDB API documentation to discover how this can be achieved. 
@@ -189,3 +200,13 @@ Add a router.  The router should:
 The above instructions are a possible construction of this app.  Feel free to develop your app as you deem best SO LONG AS you can fulfill the two user stories above.  
 
 HAPPY CODING!!!
+=======
+From this initial return, we need to be able to get a specific movie's full details based on its imdbID.
+
+Please explore the OMDB API documentation to discover how this can be achieved.
+
+## Step 2 - Setting up files
+
+  * `index.html`
+  * `app.js`
+>>>>>>> 300e9d8f0b5dcdf6da11a602fe42c59b3399f7e0
